@@ -1,21 +1,15 @@
 function calculateTime(steps, footLength, speed) {
     let distance = steps * footLength;
     let additionalMinutes = Math.floor(distance / 500);
-    let time = ((distance / 1000) / speed);
-    let hours = Math.floor(time);
-    let minutes = Number((time * 60).toFixed(2));
-    let seconds = Number(((minutes - Math.floor(minutes)) * 60).toFixed());
+    let speedMetersSecond = speed / 3.6;
+    let time = distance / speedMetersSecond
 
-    if (hours < 10) {
-        hours = '0' + hours;
-    }
-    if (minutes < 10) {
-        minutes = '0' + minutes;
-    }
-    if (seconds < 10) {
-        seconds = '0' + seconds
-    }
-    console.log(`${hours}:${Math.floor(minutes+additionalMinutes)}:${seconds}`)
+    let hours = Math.floor(time/3600);
+    let minutes = Math.floor(time/60);
+    let seconds = Math.round(time - (minutes * 60));
+    let result = new Date(0, 0, 0, hours, minutes, seconds);
+
+    console.log((hours < 10 ? "0" : "") + hours + ":" + (minutes + additionalMinutes < 10 ? "0" : "") + (minutes + additionalMinutes) + ":" + (seconds < 10 ? "0" : "") + seconds)
 }
 
 calculateTime(4000, 0.60, 5);
