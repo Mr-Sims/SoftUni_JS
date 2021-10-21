@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        ul {
+            border: 1px solid black;
+            margin: 16px;
+            padding: 16px;
+            width: 200px;
+            float: left
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="first">
+        <li>2</li>
+        <li>5</li>
+        <li>1</li>
+        <li>7</li>
+        <li>4</li>
+    </ul>
+
+    <ul id="sorted">
+    </ul>
+
+    <button onclick="sortList()">Sort List</button>
+
+    <script>
+        function sortList() {
+
+            const elements = [...document.getElementById('first').children];
+            elements.sort((a, b) => {
+                return Number(a.textContent) - Number(b.textContent)
+            });
+            // console.log(elements)
+            for (item of elements) {
+                
+                document.getElementById('first').append(item)
+
+            }
+        }
+    </script>
+</body>
+
+</html>
