@@ -29,19 +29,27 @@
 
     <button onclick="sortList()">Sort List</button>
 
+    <button id='btn'>Click me</button>
+
     <script>
         function sortList() {
-
             const elements = [...document.getElementById('first').children];
             elements.sort((a, b) => {
                 return Number(a.textContent) - Number(b.textContent)
             });
-            // console.log(elements)
             for (item of elements) {
-                
                 document.getElementById('first').append(item)
-
             }
+        }
+
+
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', logEventData);
+       
+        function logEventData(event) {
+            
+            console.log(event);
+            btn.removeEventListener('click', logEventData);
         }
     </script>
 </body>

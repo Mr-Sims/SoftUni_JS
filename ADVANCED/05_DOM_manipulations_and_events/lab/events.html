@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events demo</title>
+</head>
+<body>
+    <button id='counter'>Number of clicks are: 0</button>
+
+    <script>
+        document.getElementById('counter').addEventListener('click', onClick);
+        let counter = 0;
+        function onClick(ev) {
+            counter += 1;
+            ev.target.textContent = `Number of clicks are: ${counter}` ;
+            if (counter > 20 ) {
+                counter = 0;
+                ev.target.textContent = `Number of clicks are: ${counter}`;
+
+            }  
+        }
+    </script>
+</body>
+</html>
