@@ -41,3 +41,24 @@ storeCatalogue(['Appricot : 20.4',
 // 'Rali Car : 2000000',
 // 'Pesho : 0.000001',
 // 'Barrel : 10']);
+
+
+// // Solution with sorting beforehand
+// function solve(arr) {
+//     arr.sort((a, b) => a.localeCompare(b));
+//     const result = {};
+
+//     arr.forEach((element) => {
+//         let [product, price] = element.split(' : ')
+//         const currentObj = { product, price }
+//         if (result[product[0]] == undefined) {
+//             result[product[0]] = [currentObj]
+//         } else {
+//             result[product[0]].push(currentObj)
+//         }
+//     })
+//     for (let i in result) {
+//         console.log(i)
+//         result[i].forEach(el => console.log(`  ${el.product}: ${el.price}`))
+//     }
+// }

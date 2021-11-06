@@ -12,7 +12,7 @@ function lowestPrices(input) {
     // console.log(result)
     for (const product in result) {
         const sorted = Object.entries(result[product]).sort((a, b) => a[1] - b[1]);
-        
+
         console.log(`${product} -> ${sorted[0][1]} (${sorted[0][0]})`)
     }
 }
@@ -65,3 +65,31 @@ lowestPrices(
         'Washington City | Mercedes | 1000'
     ]);
 
+
+// a bit more pythonic solution
+// function solve(arr) {
+//     let result = {};
+//     for (let element of arr) {
+//         let [town, product, price] = element.split(' | ');
+//         price = Number(price);
+
+//         if (!result[product]) {
+//             result[product] = { price, town: town };
+//             // console.log(result)
+//         } else {
+
+//             if (result[product].town == town) {
+//                 if (result[product].price > price) {
+//                     result[product].price = price
+//                 }
+//             }
+//             if (result[product].price > price) {
+//                 result[product].price = price;
+//                 result[product].town = town;
+//             }
+//         }
+//     }
+//     for (let i in result) {
+//         console.log(`${i} -> ${result[i].price} (${result[i].town})`)
+//     }
+// }
