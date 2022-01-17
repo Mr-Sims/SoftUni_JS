@@ -58,15 +58,21 @@
             }
         }
     }
-    String.prototype.format = function(string, ...params) {
-        console.log(string)
+    String.format = function(value, ...params) {
+        let result = value;
 
+        for (i = 0; i < params.length; i++) {
+            let currentPlaceholder = `{${i}}`;
+            let currentParam = params[i]
+            result = result.replace(currentPlaceholder, currentParam)
+        }
+        return result
     };
 })()
 
 
 
-let str = 'my string';
+// let str = 'my string';
 
 // // test ensureStart()
 // str = str.ensureStart('my');
@@ -105,5 +111,9 @@ let str = 'my string';
 
 
 // // test format()
-str = String.format('The {0} {1} fox', 'quick', 'brown');
+// str = String.format('The {0} {1} fox', 'quick', 'brown');
+// console.log(str)
+
+
 str = String.format('jumps {0} {1}', 'dog');
+console.log(str)
