@@ -1,3 +1,4 @@
+// solution 1
 function greatestCommonDivisor(...param) {
     let num1 = Number(param[0]);
     let num2 = Number(param[1]);
@@ -21,7 +22,9 @@ function greatestCommonDivisor(...param) {
 greatestCommonDivisor(15, 5)
 greatestCommonDivisor(2154, 458)
 
-// trainer solution bellow
+
+
+// // solution 2
 
 function gcd(a, b) {
     while (b != 0) {
@@ -30,7 +33,25 @@ function gcd(a, b) {
         a = temp;
     }
     console.log(a)
-}
+} 
 
 gcd(15, 5);
 gcd(2154, 458);
+
+
+
+// // solution 3
+
+function solve(a, b) {
+    while (a != b) {
+        if (a > b) {
+            a -= b
+        } else {
+            b -= a
+        }
+    }
+    console.log(a)
+}
+
+solve(15, 5);
+solve(2154, 458);
