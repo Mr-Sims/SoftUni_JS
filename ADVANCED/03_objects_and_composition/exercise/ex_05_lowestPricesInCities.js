@@ -1,21 +1,52 @@
+//  using while loop
 function lowestPrices(input) {
-    const result = {};
+    let products = [];
 
-    for (const i of input) {
-        let [town, product, price] = i.split(' | ');
-        price = Number(price)
-        if (result[product] == undefined) {
-            result[product] = {};
+    while(input.length > 0) {
+        let [town, product, price] = input.shift().split(' | ');
+
+        if (products.filter(x => x.product === product).length > 0) {
+            let obj = products.find(x => x.product === product);
+
+            if (obj.price > Number(price)) {
+                obj.price = Number(price);
+                obj.town = town;
+            }
+        } else {
+            let obj = {
+                product, 
+                town,
+                price: Number(price)
+            };
+            products.push(obj);
         }
-        result[product][town] = price
     }
-    // console.log(result)
-    for (const product in result) {
-        const sorted = Object.entries(result[product]).sort((a, b) => a[1] - b[1]);
-
-        console.log(`${product} -> ${sorted[0][1]} (${sorted[0][0]})`)
+    for (let product of products) {
+        console.log(`${product.product} -> ${product.price} (${product.town})`);
     }
 }
+
+
+// function lowestPrices(input) {
+//     const result = {};
+
+//     for (const i of input) {
+//         let [town, product, price] = i.split(' | ');
+//         price = Number(price)
+//         if (result[product] == undefined) {
+//             result[product] = {};
+//         }
+//         result[product][town] = price
+//     }
+//     // console.log(result)
+//     for (const product in result) {
+//         const sorted = Object.entries(result[product]).sort((a, b) => a[1] - b[1]);
+
+//         console.log(`${product} -> ${sorted[0][1]} (${sorted[0][0]})`)
+//     }
+// }
+
+
 
 
 // function lowestPrices(arr) {
@@ -52,21 +83,22 @@ function lowestPrices(input) {
 // );
 
 lowestPrices(
-    ['Sofia City | Audi | 100000',
+    [
+        'Sofia City | Audi | 100000',
         'Sofia City | BMW | 100000',
         'Sofia City | Mitsubishi | 10000',
         'Sofia City | Mercedes | 10000',
         'Sofia City | NoOffenseToCarLovers | 0',
         'Mexico City | Audi | 1000',
         'Mexico City | BMW | 99999',
-        'New York City | Mitsubishi | 10000',
+        'Mexico City | Mitsubishi | 10000',
         'New York City | Mitsubishi | 1000',
-        'Mexico City | Audi | 100000',
         'Washington City | Mercedes | 1000'
     ]);
 
 
-// a bit more pythonic solution
+
+// // a bit more pythonic solution
 // function solve(arr) {
 //     let result = {};
 //     for (let element of arr) {
@@ -93,3 +125,17 @@ lowestPrices(
 //         console.log(`${i} -> ${result[i].price} (${result[i].town})`)
 //     }
 // }
+
+// solve(
+//     ['Sofia City | Audi | 100000',
+//         'Sofia City | BMW | 100000',
+//         'Sofia City | Mitsubishi | 10000',
+//         'Sofia City | Mercedes | 10000',
+//         'Sofia City | NoOffenseToCarLovers | 0',
+//         'Mexico City | Audi | 1000',
+//         'Mexico City | BMW | 99999',
+//         'Mexico City | Mitsubishi | 10000',
+//         'New York City | Mitsubishi | 1000',
+//         'Mexico City | Audi | 100000',
+//         'Washington City | Mercedes | 1000'
+//     ]);
