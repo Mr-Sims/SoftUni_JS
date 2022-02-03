@@ -17,7 +17,26 @@ function solve(...input) {
     }
 }
 
-solve('cat', 42, function () { console.log('Hello world!'); })
+function solve2() {
+    let data = {};
+
+    Array.from(arguments).forEach((line) => {
+        let type = typeof line;
+        console.log(`${type}: ${line}`);
+
+        if (!data[type]) {
+            data[type] = 0;
+        }
+        data[type]++;
+    })
+
+    Object.keys(data)
+    .sort((a, b) => data[b] - data[a])
+    .forEach((key) => console.log(`${key} = ${data[key]}`))
+}
 
 
-solve({ name: 'bob' }, 3.333, 9.999)
+solve2('cat', 42, function () { console.log('Hello world!'); })
+
+
+solve2({ name: 'bob' }, 3.333, 9.999)

@@ -1,13 +1,29 @@
+// function add(num) {
+//     function adder (n) {
+//         num += n;
+//         return adder;
+//     }
+//     adder.toString = function(){
+//         return '' + num
+//     };
+//     return adder;
+// }
+
+
 function add(num) {
-    function adder (n) {
-        num += n;
-        return adder;
+    let sum = 0;
+
+    function innerSum(number) {
+        sum += number;
+        return innerSum
     }
-    adder.toString = function(){
-        return '' + num
-    };
-    return adder;
+    innerSum.toString = () => {
+        return sum;
+    }
+    return innerSum(num)
 }
 
-console.log(add(1))
-console.log(add(1)(6)(-3).toString())
+
+console.log(add2(1))
+console.log(add2(1)(6)(-3).toString())
+
