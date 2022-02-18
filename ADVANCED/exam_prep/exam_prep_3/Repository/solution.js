@@ -65,38 +65,33 @@ class Repository {
 
 module.exports = { Repository };
 
+// Initialize props object
+let properties = {
+    name: "string",
+    age: "number",
+    birthday: "object"
+};
+//Initialize the repository
+let repository = new Repository(properties);
+// Add two entities
+let entity = {
+    name: "Pesho",
+    age: 22,
+    birthday: new Date(1998, 0, 7)
+};
+repository.add(entity); // Returns 0
+repository.add(entity); // Returns 1
 
 
+console.log(repository.getId(0));
+console.log(repository.data)
+
+// {"name":"Pesho","age":22,"birthday":"1998-01-06T22:00:00.000Z"}
 
 
-
-
-
-
-
-
-
-// // Initialize props object
-// let properties = {
-//     name: "string",
-//     age: "number",
-//     birthday: "object"
-// };
-// //Initialize the repository
-// let repository = new Repository(properties);
-// // Add two entities
-// let entity = {
-//     name: "Pesho",
-//     age: 22,
-//     birthday: new Date(1998, 0, 7)
-// };
-// repository.add(entity); // Returns 0
-// repository.add(entity); // Returns 1
-// console.log(repository.getId(0));
-// // {"name":"Pesho","age":22,"birthday":"1998-01-06T22:00:00.000Z"}
 // console.log(repository.getId(1));
-// // {"name":"Pesho","age":22,"birthday":"1998-01-06T22:00:00.000Z"}
-// //Update an entity
+// {"name":"Pesho","age":22,"birthday":"1998-01-06T22:00:00.000Z"}
+//Update an entity
 // entity = {
 //     name: 'Gosho',
 //     age: 22,
