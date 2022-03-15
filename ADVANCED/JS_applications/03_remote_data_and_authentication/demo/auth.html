@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth demo</title>
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<h2>REGISTER</h2>
+<form id="register-form">
+    <label>Email: <input type="text" name="email" /></label>
+    <label>Password: <input type="password" name="password" /></label>
+    <label>Repeat Pass<input type="password" name="repass" /></label>
+    <input type="submit" value="Register" />
+</form>
+
+
+<h2>Login</h2>
+<form id="login-form">
+    <label>Email: <input type="text" name="email" /></label>
+    <label>Password: <input type="password" name="password" /></label>
+    <input type="submit" value="Login" />
+</form>
+
+<body>
+    <script>
+        let registerForm = document.getElementById('register-form')
+        registerForm.addEventListener('submit', onRegister)
+
+
+        async function onRegister(event) {
+            event.preventDefault()
+            const url = 'http://localhost:3030/users/register'
+            let formData = new FormData(registerForm)
+            const email = formData.get('email').trim()
+            const password = formData.get('password').trim()
+            const repass = formData.get('repass').trim()
+
+            const options = {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            }
+
+            const res = await fetch(url, options)
+
+            const result = await res.json()
+
+            const token = result.accessToken
+            sessionStorage.setItem('token', token)
+
+            window.location = '/03_remote_data_and_authentication/demo/forms2.html'
+        }
+
+        let loginForm = document.getElementById('login-form')
+        loginForm.addEventListener('submit', onLogin)
+
+
+        async function onLogin(event) {
+            event.preventDefault()
+            const url = 'http://localhost:3030/users/login'
+            let formData = new FormData(loginForm)
+            const email = formData.get('email').trim()
+            const password = formData.get('password').trim()
+
+            try {
+                const options = {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                }
+                if (res.status != 200) {
+                    const error = await res.json();
+                    throw new Error(`Error: ${error.message}`)
+                }
+                const res = await fetch(url, options)
+                const result = await res.json()
+                const token = result.accessToken
+                sessionStorage.setItem('token', token)
+                window.location = '/03_remote_data_and_authentication/demo/forms2.html'
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
