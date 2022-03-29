@@ -17,29 +17,64 @@ const views = {
     'registerLink': showRegister,
     
 }
+const nav = document.querySelector('nav')
+document.getElementById('logoutBtn').addEventListener('click', onLogout)
 
-document.querySelector('nav').addEventListener('click', (event) => {
+nav.addEventListener('click', (event) => {
     const view = views[event.target.id]
     if (typeof view == 'function') {
         event.preventDefault()
         view()
     }
 })
+updateNav()
 
+showHome()
 
+export function updateNav() {
+    const userData = JSON.parse(sessionStorage.getItem('userData'))
+    if ( userData != null) {
+        nav.querySelector('#welcomeMsg').textContent = `Welcome, ${userData.email}`;
+        [...nav.querySelectorAll('.user')].forEach(e => e.style.display = 'block');
+        [...nav.querySelectorAll('.guest')].forEach(e => e.style.display = 'none');
 
+    } else {
+        [...nav.querySelectorAll('.user')].forEach(e => e.style.display = 'none');
+        [...nav.querySelectorAll('.guest')].forEach(e => e.style.display = 'block');
+
+    }
+}
+
+async function onLogout(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation()
+    const {token} = JSON.parse(sessionStorage.getItem('userData'))
+    const url = 'http://localhost:3030/users/logout'
+    const options = {
+        headers: {
+            'X-Authorization': token
+        }
+    }
+    await fetch(url, options)
+    sessionStorage.removeItem('userData')
+    updateNav()
+    showLogin()
+}
 
 
 // Order of views
-// - catalog (home view)
-// - login/register
+// x catalog (home view)
+// x login
+// x logout
+// - register
 // - create
 // - detals
 // - likes
 // - edit
 // - delete
 
-showHome()
+// 2:22:24
+
 
 // window.showHome = showHome;
 // window.showDetails = showDetails
