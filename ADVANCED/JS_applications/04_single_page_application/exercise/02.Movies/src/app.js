@@ -66,14 +66,14 @@ async function onLogout(event) {
 // x catalog (home view)
 // x login
 // x logout
-// - register
+// x register
 // - create
-// - detals
-// - likes
+// x detals
+// x likes/unlikes
 // - edit
 // - delete
 
-// 2:22:24
+
 
 
 // window.showHome = showHome;
