@@ -61,7 +61,6 @@ export async function del(url) {
 
 export async function login(email, password) {
     const result = await post('/users/login', {email, password});
-    // console.log(result)
     const userData = {
         email: result.email,
         id: result._id,
