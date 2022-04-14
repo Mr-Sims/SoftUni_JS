@@ -14,11 +14,16 @@ export async function showCatalogPage(ctxTarget) {
 }
 
 async function loadIdeas() {
-    const ideas = await getAllIdeas()
+    const ideas = await getAllIdeas();
+
+    if(ideas.length == 0) {
+         section.replaceChildren(e('h1', {}, 'No ideas yet! Be the first one :)'))
+         //<h1>No ideas yet! Be the first one :)</h1>
+    } else {
     const fragment = document.createDocumentFragment()
     ideas.map(createIdeaCard).forEach(i => fragment.appendChild(i))
     section.replaceChildren(fragment)
-
+    }
 }
 
 function createIdeaCard(idea) {

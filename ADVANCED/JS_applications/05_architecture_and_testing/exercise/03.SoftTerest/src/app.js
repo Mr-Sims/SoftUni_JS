@@ -1,3 +1,4 @@
+import { logout } from './api/data.js'
 import { showSection } from './dom.js'
 
 import { showCatalogPage } from "./views/catalog.js"
@@ -27,7 +28,14 @@ const views = {
 }
 
 const nav = document.querySelector('nav')
-nav.addEventListener('click', onNavigate)
+nav.addEventListener('click', onNavigate);
+document.getElementById('logoutBtn').addEventListener('click', async (event) => {
+    event.preventDefault();
+    await logout()
+    updateNav()
+    goTo('home')
+})
+
 
 const ctx = {
     goTo,
