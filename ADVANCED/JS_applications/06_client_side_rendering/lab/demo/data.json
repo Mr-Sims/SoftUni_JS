@@ -1,0 +1,17 @@
+[
+    {
+        "title": "First Article",
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repellendus dolorum, consequuntur obcaecati quam mollitia nobis expedita ad iste numquam porro quae facere adipisci totam nemo vitae impedit laborum accusantium!",
+        "author": "John Smith"
+    },
+    {
+        "title": "Second Article",
+        "content": "Laboriosam repellendus dolorum, consequuntur obcaecati quam mollitia nobis expedita ad iste numquam porro quae facere adipisci totam nemo vitae impedit laborum accusantium!",
+        "author": "Peter Petrov"
+    },
+    {
+        "title": "Third Article",
+        "content": "Lorem lorem treinta i veinte no tengo mas informacion para escribir una article treinta",
+        "author": "Ican Ivanov"
+    }
+]
