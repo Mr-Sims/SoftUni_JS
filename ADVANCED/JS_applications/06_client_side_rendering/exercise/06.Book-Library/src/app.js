@@ -3,7 +3,7 @@ import { showCreate } from './create.js'
 import { showUpdate } from './update.js'
 
 import { render } from './utility.js'
- 
+
 // main module
 // init modules with dependecies
 // - rendering
@@ -12,11 +12,17 @@ import { render } from './utility.js'
 const root = document.body
 
 const ctx = {
-    render: (template) => render(template, root)
+    // render: (template) => render(template, root)
+    update
 }
 
-ctx.render([
-showCatalog(ctx),
-showCreate(ctx),
-showUpdate(ctx) 
-])
+update()
+
+function update() {
+    render([
+        showCatalog(ctx),
+        showCreate(ctx),
+        showUpdate(ctx)
+    ], root)
+}
+
