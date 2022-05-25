@@ -1,0 +1,71 @@
+/* @font-face {
+    font-family: 'Macondo';
+    src: url("Macondo-Regular.ttf");
+} */
+h1 {
+    font-family: 'Macondo'; 
+}
+
+p {
+    font-family: 'Macondo', cursive;
+    /* font-size: 25px; */
+}
+
+span {
+    font-family: Macondo;
+}
+p.curs {
+    font-family: Macondo;
+}
+html {
+    font-size: 15px;
+}
+
+/* rem example */
+/* #p1 {
+    color: red;
+    font-size: 1.5rem;
+}
+#p2 {
+    color: green;
+    font-size: 1.5rem;
+}
+#p3 {
+    color: orange;
+    font-size: 1.5rem;
+} */
+
+/* em example */
+#p1 {
+    color: red;
+    font-size: 1.5em;
+    font-weight: 100;
+    text-shadow: 5px 5px 5px black;
+}
+#p2 {
+    color: green;
+    font-size: 1.5em;
+    font-weight: 700;
+
+}
+#p3 {
+    color: orange;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+
+.overflow {
+    display: inline-block;
+    width: 60px;
+    text-decoration: none;
+    background-color: brown;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor:cell
+}
+
+i {
+    font-size: 50px;
+}

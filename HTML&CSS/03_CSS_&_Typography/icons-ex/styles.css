@@ -1,0 +1,39 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+ul {
+    list-style: none;
+    background-color: beige;
+    font-size: 25px;
+    padding: 0.5rem;
+    width: 170px;
+}
+
+ul li a {
+    color: darkred;
+    padding: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button {
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.checkout {
+    background-color: #41A317;
+    border-color: darkolivegreen;
+}
+
+.info {
+    background-color: #5F9BB3;
+    border-color: darkslateblue;
+}
+
+.delete {
+    background-color: red;
+    border-color: darkred;
+}
