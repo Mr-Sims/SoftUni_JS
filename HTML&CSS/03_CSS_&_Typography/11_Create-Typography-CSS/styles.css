@@ -1,0 +1,32 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.heading {
+    font-family: Georgia, serif;
+}
+
+table {
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 55px
+}
+
+table thead {
+    font-weight: bold;
+}
+thead {
+    background-color: rgb(214, 214, 214);
+}
+
+tbody td {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+blockquote {
+    border-left: rgb(221,221,221);
+    font-style: italic;
+}
