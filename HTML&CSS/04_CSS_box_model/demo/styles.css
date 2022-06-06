@@ -1,0 +1,38 @@
+div {
+    background-color: lightgrey;
+}
+
+article {
+    background-color: lightcyan;
+    height: 170px;
+    max-height: 700px;
+    overflow: hidden;
+    border: 1px solid black;
+    margin-bottom: 40px;
+}
+
+article h2 {
+    padding: 24px;
+   width: 50%;
+   background-color: lightcoral; 
+   margin-left: auto;
+   margin-right: auto;
+}
+
+
+article span {
+    background-color: lightcoral;
+    padding: 4px;
+    margin: 8px;
+    /* display: inline-block; */
+}
+
+.tag {
+    background-color: lightgreen;
+    margin: 0%;
+    margin-bottom: 6px;
+    padding: 4px;
+    border-radius: 4px;
+    display: inline-block;
+    /* margin: auto; */
+}
