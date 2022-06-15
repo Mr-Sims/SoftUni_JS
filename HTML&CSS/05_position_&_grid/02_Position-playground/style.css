@@ -1,0 +1,55 @@
+@import 'https://use.fontawesome.com/releases/v5.15.4/css/all.css';
+
+.viewport {
+    height: 50vh;
+}
+
+.card {
+    display: block;
+}
+
+.viewport.one {
+    position: relative;
+    background-image: linear-gradient(to right, #176464 , #3ddfdf);
+}
+
+.viewport.two {
+    position: relative;
+    background-image: linear-gradient(to right, #fb5100 , #e4a21c);
+}
+
+.viewport.one .card img {
+    max-width: 20rem;
+}
+
+.viewport.two .card img {
+    max-height: 24rem;
+}
+
+.viewport.one .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.viewport.two .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fas.fa-link {
+    color: white;
+    position: absolute;
+    top: 87%;
+    left: 92%;
+}
+
+.fas.fa-star {
+    color: white;
+    position: absolute;
+    top: 93%;
+    left: 91%;
+}
