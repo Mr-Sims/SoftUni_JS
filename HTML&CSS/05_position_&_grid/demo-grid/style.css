@@ -1,0 +1,66 @@
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li:nth-child(3n+1) {
+    background-color: lightcoral;
+}
+
+ul li:nth-child(3n+2) {
+    background-color: lightgreen;
+}
+
+ul li:nth-child(3n+3) {
+    background-color: yellow;
+}
+
+ul {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 25px);
+    gap: 10px 20px;
+}
+
+ul li {
+    border-radius: 10px;
+    padding-top: 2.5px;
+    padding-left: 10px;
+}
+
+
+.header {
+    background-color: lightgray;
+    grid-area: head;
+}
+
+.aside {
+    background-color: lightblue;
+    grid-area: aside;
+}
+
+.main {
+    background-color: yellow;
+    grid-area: main;
+}
+
+.footer {
+    background-color: lightsalmon;
+    grid-area: foot;
+}
+
+body {
+    display: grid;
+    /* grid-template-columns: 200px auto; */
+    /* grid-auto-columns: minmax(0, 1fr); */
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    "head head head head"
+    "aside  main main main"
+    "foot foot foot foot";
+    gap: 10px;
+}
