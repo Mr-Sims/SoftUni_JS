@@ -53,10 +53,13 @@ article {
 }
 
 blockquote {
+    border-left: 3px solid grey;
+    padding-left: 50px;
     max-width: 45%;
     float: right;
     font-style: italic;
     color: gray;
+    font-family: Georgia, serif;
 }
 
 blockquote p:last-child {
@@ -66,7 +69,6 @@ blockquote p:last-child {
 
 .floating-p {
     max-width: 40%;
-    border-right: 4px solid rgb(220, 220, 220);
     padding-right: 25px;
 }
 
