@@ -1,0 +1,80 @@
+.container {
+    background-color: #b0a8b9;
+    border: 2px dashed black;
+
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+
+
+    align-items: center;
+
+    /* flex-wrap: wrap;  */
+
+
+
+
+    /* flex-flow: row-reverse; */
+    /* align-content: center; */
+
+    /* align-content defines the content in the flex, while align-items puts together the items into the flex ?! */
+
+}
+
+.container .element {
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    /* width: 30%; */
+}
+
+/* .container .element:not(:nth-child(3n+0)) {
+    margin-right: 5%;
+} */
+
+.container .element:nth-child(1) {
+    background-color: #845ec2;
+    /* flex-grow: 1; */
+    /* flex-shrink: 2; */
+}
+
+.container .element:nth-child(2) {
+    background-color: #d65db1;
+}
+
+.container .element:nth-child(3) {
+    background-color: #ff6f91;
+    
+    /* this below */
+    /* flex-grow: 0; */
+    /* flex-shrink: 1; */
+    /* flex-basis: 200px; */
+    /* is the same as this below */
+    /* flex: 0 1 200px */
+
+
+}
+
+.container .element:nth-child(4) {
+    background-color: #ff9671;
+
+    /* align-self: stretch; */
+
+}
+
+.container .element:nth-child(5) {
+    background-color: #ffc75f;
+    /* align-self:flex-start; */
+
+}
+
+.container .element:nth-child(6) {
+    background-color: #f9f871;
+    display: none;
+    /* order: -1; */
+}
+
+.container .element.img {
+    width: 30%;
+}
