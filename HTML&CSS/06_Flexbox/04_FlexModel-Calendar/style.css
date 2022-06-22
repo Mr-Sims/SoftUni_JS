@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+/* FLEXBOX Solution */
+
+.container {
+    max-width: 65vw;
+}
+
+.container span {
+    border: 1px solid black;
+    padding: 5px
+}
+
+.container {
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.container .week {
+    display: flex ;
+    flex-wrap: wrap;
+}
+
+.container .week span {
+    width: 20%;
+}
+
+.container .week span:nth-child(1),
+.container .week span:nth-child(7) {
+    width: 100%;
+    text-align: center;
+}
+
+.container .week span:nth-child(8),
+.container .week span:nth-child(9) {
+    width: 50%;
+    text-align: center;
+}
+
+.container .notes {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .notes span {
+    flex-grow: 1;
+}
+
+/* GRID Solution */
+
+.grid {
+    max-width: 65vw;
+    display: grid;
+
+    grid-template: 
+    "workw workw workw workw workw workw workw workw workw workw reminders reminders"
+    "mon mon tue tue wed wed thu thu fri fri reminders reminders"
+    "weekend weekend weekend weekend weekend weekend weekend weekend weekend weekend special special"
+    "sat sat sat sat sat sun sun sun sun sun special special";
+}
+
+.grid span {
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
+}
+
+.grid span:nth-child(1) {
+    grid-area: workw;
+}
+
+.grid span:nth-child(2) {
+    grid-area: mon;
+}
+
+.grid span:nth-child(3) {
+    grid-area: tue;
+}
+
+.grid span:nth-child(4) {
+    grid-area: wed;
+}
+
+.grid span:nth-child(5) {
+    grid-area: thu;
+}
+
+.grid span:nth-child(6) {
+    grid-area: fri;
+}
+
+.grid span:nth-child(7) {
+    grid-area: weekend;
+}
+
+.grid span:nth-child(8) {
+    grid-area: sat;
+}
+
+.grid span:nth-child(9) {
+    grid-area: sun;
+}
+
+.grid span:nth-child(10) {
+    grid-area: reminders;
+}
+
+.grid span:nth-child(11) {
+    grid-area: special;
+}
