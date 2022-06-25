@@ -1,0 +1,69 @@
+:root {
+    --clr-background: #f6f8f9;
+    --clr-left-btn: #786eff;
+    --clr-font: #98a0a7;
+    --clr-headings: #3c4753;
+    --clr-right-btn: #3b4553;
+}
+
+html {
+    font-family: Helvetica, serif;
+    font-size: 16px;
+}
+
+.main-container .info {
+    padding: 0 240px;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-background);
+    justify-content:space-around;
+    padding: 12px 50px;
+    border-radius: 1rem;
+    margin: 1.5rem; 
+}
+
+.info h6 {
+    color: var(--clr-headings);
+    font-size: 1rem;
+}
+
+.info h1 {
+    color: var(--clr-headings);
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.info p {
+    color: var(--clr-font);
+    width: 500px;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.info .btn {
+    padding: 1rem 2rem;
+    margin-right: 1rem;
+    color: var(--clr-right-btn);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0.3rem;
+    border-color: var(--clr-right-btn);
+    cursor: pointer;
+}
+
+.info .btn-contact {
+    background-color: var(--clr-left-btn);
+    color: var(--clr-background);
+    border-color: var(--clr-left-btn);
+}
+
+.main-container .img {
+    margin-bottom: -1rem;
+    margin-right: 15rem;
+}
