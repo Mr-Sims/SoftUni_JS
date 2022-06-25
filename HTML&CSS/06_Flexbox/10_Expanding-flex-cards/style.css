@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    height: 70vh;
+    width: 90vw;
+    border-radius: 3px;
+}
+
+.container {
+    display: flex;
+    width: 50%;
+    gap: 10px;
+}
+
+.img {
+    -webkit-box-shadow: 0px 0px 47px 15px rgba(0,0,0,0.38); 
+    box-shadow: 0px 0px 47px 15px rgba(0,0,0,0.38); 
+    border-radius: 5px;
+}
+
+.container .compresed-img {
+    max-width: 12%;
+    object-fit:cover;
+}
+
+.container .expanded-img {
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+}
