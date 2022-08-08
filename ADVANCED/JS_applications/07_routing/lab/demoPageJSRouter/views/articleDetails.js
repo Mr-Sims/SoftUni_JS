@@ -11,7 +11,7 @@ const articleDetailsTemplate = (article) => html`
         <p>Author: ${article.author}</p>
 </footer>
 </article>
-` 
+`;
 
 const root = document.getElementById('root')
 

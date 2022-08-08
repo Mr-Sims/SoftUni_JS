@@ -7,7 +7,7 @@ ${articles.map(a => html`
             <h4>${a.title}</h3>
             <footer>
                 <p>Author: ${a.author}</p>
-                <a href="/articles/${a.id}">read more...</a>
+                <a href="/articles/${a.id || a._id}">read more...</a>
             </footer>
 
         </article>
