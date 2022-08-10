@@ -34,7 +34,7 @@ export async function registerPage(ctx) {
     update(null, {});
 
     function update(errorMsg, errors) {
-        ctx.render(registerTemplate(onSubmit, errorMsg, errors))
+        ctx.render(registerTemplate(onSubmit, errorMsg, errors));
     }
 
     async function onSubmit(ev) {
@@ -68,7 +68,7 @@ export async function registerPage(ctx) {
             ctx.updateUserNav();
             ctx.page.redirect('/');
         } catch(err) {
-            const message = err.message || err.error.message 
+            const message = err.message || err.error.message;
             update(message, err.errors || {});
         }
     }

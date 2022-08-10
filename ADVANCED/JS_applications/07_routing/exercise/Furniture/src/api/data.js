@@ -26,7 +26,7 @@ export async function getMyItems(userId) {
 }
 
 export function createItem(data) {
-    api.post(endpoints.create, data)
+    return api.post(endpoints.create, data)
 }
 
 export function editItem(id, data) {

@@ -1,6 +1,6 @@
 import { logout } from './api/data.js';
 import { render } from './lib.js';
-import {page} from './lib.js';
+import { page } from './lib.js';
 import { getUserData } from './util.js';
 import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
@@ -31,6 +31,7 @@ page.start();
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, root);
     ctx.updateUserNav = updateUserNav;
+
     next();
 }
 
