@@ -22,18 +22,18 @@ Implement views
 [x] Template and view control
 
 -Create
-[] Writing functionality in Data service>
-[] Template and view control
-[] Submiting form and error handling
+[x] Writing functionality in Data service>
+[x] Template and view control
+[x] Submiting form and error handling
 
 -Details
-[] Extend reading functionality in Data service
-[] Template and view control
+[x] Extend reading functionality in Data service
+[x] Template and view control
 
 -Edit and Delete 
-[] Extend reading functionality in Data service
-[] Template and view control
-[] Submiting form and error handling
+[x] Extend reading functionality in Data service
+[x] Template and view control
+[x] Submiting form and error handling
 
 -BONUS: Comments
 [] Create comments service

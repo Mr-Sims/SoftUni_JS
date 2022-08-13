@@ -19,13 +19,17 @@ const header = document.querySelector('.nav-header');
 
 const root = document.getElementById('main-content');
 
+
+
 function ctxRender(content) {
     render(content, root);
 }
 
 export function addRender(ctx, next) {
     // console.log(ctx);
-    render(navTemplate(ctx.user), header)
+    render(navTemplate(ctx.user), header);
+
+    
     ctx.render = ctxRender;
     next();
 }

@@ -10,9 +10,9 @@ import { registerPage } from './views/register.js';
 import { logout } from '../src/api/users.js'
 import { addsession } from './middleware/session.js';
 
-import * as api from '../src/api/games.js';
-
-window.api = api
+// for testing in the browser console
+// import * as api from '../src/api/games.js';
+// window.api = api
 
 page(addsession)
 page(addRender);
