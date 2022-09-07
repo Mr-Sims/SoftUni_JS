@@ -6,11 +6,9 @@ export const endpoints = {
     recipeDetails: (id) => `/classes/Recipe/${id}?include=owner`,
     createRecipe: '/classes/Recipe',
     recipeById: '/classes/Recipe/',
-    commentsByRecipe: (recipeId) => `/classes/Comment/${createPointerQuery('recipe', 'Recipe', recipeId)}?include=owner`, 
+    comments: '/classes/Comment', 
+    commentsByRecipe: (recipeId) => `/classes/Comment?where=${createPointerQuery('recipe', 'Recipe', recipeId)}&include=owner`, 
 }
-
-
-
 
 
 export function createPointerQuery(propName, className, objectId) {
@@ -20,9 +18,6 @@ export function createPointerQuery(propName, className, objectId) {
 export function createQuery(query) {
     return encodeURIComponent(JSON.stringify(query));
 }
-
-
-
 
 
 export function createPointer(className, objectId) {
