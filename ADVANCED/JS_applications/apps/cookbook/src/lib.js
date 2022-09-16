@@ -1,8 +1,8 @@
-import { html, render } from '../node_modules/lit-html/lit-html.js';
-import { until } from '../node_modules/lit-html/directives/until.js';
-import { classMap } from '../node_modules/lit-html/directives/class-map.js'
+import { html, render } from '../src/lib/lit-html.js';
+import { until } from '../src/lib/directives/until.js';
+import { classMap } from '../src/lib/directives/class-map.js'
 
-import page from '../node_modules/page/page.mjs';
+import page from '../src/lib/page.mjs';
 
 export {
     html,
