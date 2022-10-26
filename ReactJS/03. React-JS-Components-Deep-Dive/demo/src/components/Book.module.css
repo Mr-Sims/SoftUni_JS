@@ -1,0 +1,16 @@
+.book-item {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.other-class {
+    color: red;
+}
+
+.author {
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* li {
+    background-color: yellow;
+} */
