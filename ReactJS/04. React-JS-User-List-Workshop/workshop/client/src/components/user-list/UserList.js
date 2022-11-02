@@ -1,12 +1,43 @@
+import { useState } from "react";
 import { UserItem } from "./user-item/UserItem";
+import { UserDetails} from './user-details/UserDetails';
 
-export const UserList = ({users}) => {
+import * as userService from '../../services/userService';
+
+const UserActions = {
+    Details: 'details',
+    Edit: 'edit',
+    Delete: 'delete',
+}
+
+export const UserList = ({
+    users,
+
+}) => {
+
+    const [userAction, setUserAction] = useState({user: null, action: null});
+
+    const detailsClickHandler = (id) => {
+        // console.log(`CLICKED -> ${id}`)
+        userService.getOne(id)
+            .then(user => {
+                setUserAction({
+                    user,
+                    action: UserActions.Details
+                })
+            })
+    }
+
+    const onCloseHandler = () => {
+        setUserAction({user: null, action: null})
+    }
+
     return (
         // Table component
 
         <div className="table-wrapper">
-            {/* Overlap components  */}
 
+            {/* Overlap components  */}
             {/* <div className="loading-shade">
                 <div className="spinner"></div>
 
@@ -73,6 +104,9 @@ export const UserList = ({users}) => {
 
 
 
+            {userAction.action === UserActions.Details && <UserDetails user={userAction.user} onClose={onCloseHandler}/>}
+
+
 
             <table className="table">
                 <thead>
@@ -131,7 +165,10 @@ export const UserList = ({users}) => {
                 </thead>
                 <tbody>
                     {/* Table row component */}
-                    {users.map(user => <tr key={user._id}><UserItem {...user}/></tr>)}
+                    {users.map(user => 
+                    <tr key={user._id}>
+                        <UserItem user={user} onDetailsClick={detailsClickHandler}/>
+                    </tr>)}
 
 
                     
