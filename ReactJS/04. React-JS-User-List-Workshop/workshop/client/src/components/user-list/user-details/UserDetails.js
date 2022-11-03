@@ -31,13 +31,13 @@ export const UserDetails = ({
                             <p>User Id: <strong>{user._id}</strong></p>
                             <p>
                                 Full Name:
-                                <strong> {user.firstName} {user.lastName} </strong>
+                                <strong> {utils.fullNameHelper(user.firstName, user.lastName)} </strong>
                             </p>
                             <p>Email: <strong>{user.email}</strong></p>
                             <p>Phone Number: <strong>{user.phoneNumber}</strong></p>
                             <p>
                                 Address:
-                                <strong> {printAddress(user.address)} </strong>
+                                <strong> {utils.printAddress(user.address)} </strong>
                             </p>
 
                             <p>Created on: <strong>{utils.dateConverter(user.createdAt)}</strong></p>
@@ -50,6 +50,3 @@ export const UserDetails = ({
     );
 }
 
-function printAddress(data) {
-    return `${data.country}, ${data.city}, ${data.street}, ${data.streetNumber}`
-}

@@ -24,12 +24,11 @@ function App() {
 		<Header />
 			<div className='main'>
 				<section className='card users-container'>
+					
 					<Search />
 					<UserList users={users}/>
 
-
-
-
+					
 				</section>
 			</div>
 		<Footer />

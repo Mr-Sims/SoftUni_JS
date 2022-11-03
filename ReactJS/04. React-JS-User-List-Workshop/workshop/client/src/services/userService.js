@@ -13,3 +13,16 @@ export const getOne = async (id) => {
 
     return result.user;
 }
+
+export const create = async (data) => {
+    const response = await fetch(baseUrl, {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    const result = await response.json()
+    // console.log(result)
+    return result
+}

@@ -1,8 +1,9 @@
 import {Fragment} from 'react';
+import { UserActions } from '../UserListConstants';
 
 export const UserItem = ({
     user,
-    onDetailsClick
+    onActionClick
 }) => {
     // console.log(props)
     const blankProfileImg = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
@@ -19,7 +20,7 @@ export const UserItem = ({
             <td>{user.createdAt}</td>
 
             <td className="actions">
-                <button className="btn edit-btn" title="Edit">
+                <button onClick={() => onActionClick(user._id, UserActions.Edit)} className="btn edit-btn" title="Edit">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
                         className="svg-inline--fa fa-pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 532 512">
@@ -28,7 +29,7 @@ export const UserItem = ({
                         </path>
                     </svg>
                 </button>
-                <button className="btn delete-btn" title="Delete">
+                <button onClick={() => onActionClick(user._id, UserActions.Delete)} className="btn delete-btn" title="Delete">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash"
                         className="svg-inline--fa fa-trash" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 498 512">
@@ -37,7 +38,7 @@ export const UserItem = ({
                         </path>
                     </svg>
                 </button>
-                <button onClick={() => onDetailsClick(user._id)} className="btn info-btn" title="Info">
+                <button onClick={() => onActionClick(user._id, UserActions.Details)} className="btn info-btn" title="Info">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info"
                         className="svg-inline--fa fa-info" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="-150 0 512 612">
