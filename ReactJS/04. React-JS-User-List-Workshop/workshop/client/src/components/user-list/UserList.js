@@ -17,7 +17,6 @@ export const UserList = ({
     const [userAction, setUserAction] = useState({ user: null, action: null });
 
     const userActionClickHandler = (id, actionType) => {
-        // console.log(`CLICKED -> ${id}`)
         userService.getOne(id)
             .then(user => {
                 setUserAction({
@@ -27,38 +26,15 @@ export const UserList = ({
             })
     }
 
-    const userCreateHandler = (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
+    const createUserOpenHandler = () => {
+        setUserAction({
+            action: UserActions.Add
+        })
+    }
 
 
-        const {
-            firstName,
-            lastName,
-            email,
-            imageUrl,
-            phoneNumber,
-            country,
-            city,
-            street,
-            streetNumber
-
-        } = Object.fromEntries(formData)
-
-        const userData = {
-            firstName,
-            lastName,
-            email,
-            imageUrl,
-            phoneNumber,
-            address: {
-                country,
-                city,
-                street,
-                streetNumber
-            }
-        }
-
+    const userCreateHandler = (userData) => {
+        
         // console.log(JSON.stringify(userData))
         userService.create(userData)
             .then(user => {
@@ -84,7 +60,7 @@ export const UserList = ({
                 {userAction.action === UserActions.Details && <UserDetails user={userAction.user} onClose={onCloseHandler} />}
                 {userAction.action === UserActions.Edit && <UserEdit user={userAction.user} onClose={onCloseHandler} />}
                 {userAction.action === UserActions.Delete && <UserDelete user={userAction.user} onClose={onCloseHandler} />}
-                {userAction.action === UserActions.Add && <UserCreate onClose={onCloseHandler} onUserCreate={userCreateHandler} />}
+                {userAction.action === UserActions.Add && <UserCreate onUserCreate={userCreateHandler} onClose={onCloseHandler} />}
 
                 <table className="table">
                     <thead>
@@ -147,7 +123,7 @@ export const UserList = ({
                             <tr key={user._id}>
                                 <UserItem
                                     user={user}
-                                    onActionClick={userActionClickHandler}
+                                    onActionClick={() => userActionClickHandler}
                                 />
                             </tr>)}
 
@@ -155,7 +131,7 @@ export const UserList = ({
                     </tbody>
                 </table>
             </div>
-            <button onClick={() => userActionClickHandler(null, UserActions.Add)} className="btn-add btn">Add new user</button>
+            <button onClick={createUserOpenHandler} className="btn-add btn">Add new user</button>
         </Fragment>
     );
 }
