@@ -75,20 +75,21 @@ export async function login(email, password) {
     const userData = {
         email: result.email,
         id: result._id,
-        token: result.accessToken
+        token: result.accessToken,
+        username: result.username
     };
     setUserData(userData);
     // sessionStorage.setItem('userData', JSON.stringify(userData));
 }
 
 
-export async function register(email, password) {
-    const result = await post('/users/register', {email, password});
-
+export async function register(email, username, password) {
+    const result = await post('/users/register', {email, username, password});
     const userData = {
         email: result.email,
         id: result._id,
-        token: result.accessToken
+        token: result.accessToken,
+        username: result.username
     };
     setUserData(userData);
     // sessionStorage.setItem('userData', JSON.stringify(userData))
@@ -96,7 +97,9 @@ export async function register(email, password) {
 
 
 export async function logout() {
-    await get('/users/logout');
+    // await get('/users/logout');
+
+    get('/users/logout');
     clearUserData();
 
     // sessionStorage.removeItem('userData')

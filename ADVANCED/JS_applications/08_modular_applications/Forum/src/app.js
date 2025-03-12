@@ -1,6 +1,8 @@
 import { logout } from './api/data.js';
 import { render, page } from './lib.js';
 import { getUserData } from './util.js';
+import { createPage } from './views/create.js';
+import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { showRegister } from './views/register.js';
@@ -12,7 +14,8 @@ document.querySelector('#logoutBtn').addEventListener('click', onLogout);
 page(decorateContext);
 page('/', showHome);
 page('/topics', showTopics);
-page('/create', () => console.log('create'));
+page('/topic/:id', showDetails)
+page('/create', createPage);
 page('/login', showLogin);
 page('/register', showRegister);
 

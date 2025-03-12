@@ -1,17 +1,20 @@
 import { getAllTopics } from '../api/data.js';
+import { spinner } from '../common/spinner.js';
 import { html, until } from '../lib.js';
 
 const topicsTemplate = (topicsPromise) => html`
 <h1>Topics</h1>
 <div>
     
-   ${until(topicsPromise, html`<p class='spinner'>Loading &hellip;</p>`)}
+   ${until(topicsPromise, spinner())}
 </div>`
 
 const topicPreviewCard = (topic) => html`
 <article class="preview drop">
     <header><a href="${`/topic/${topic._id}`}">${topic.title}</a></header>
-    <div>Comments: 23</div>
+    <div>
+        <span>Post by: ${topic.author.username}</span> | <span>22 Comments</span>
+    </div>
 </article>`;
 
 

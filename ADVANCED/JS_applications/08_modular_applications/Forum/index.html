@@ -4,22 +4,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/site.css">
-        <script type="module" src="src/app.js"></script>
+        <script type="module" src="/src/app.js"></script>
         <title>Forum</title>
     </head>
     <body>
         <div id="container">
             <header>
-                <div><a href="/">FORUM</a></div>
+                <a class="home nav-link" href="/">FORUM</a>
                 <nav>
-                    <a href="/topics">Topics</a>
+                    <a class="nav-link" href="/topics">Topics</a>
                     <div class="guest">
-                        <a href="/login">Login</a>
-                        <a href="/register">Register</a>
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/register">Register</a>
                     </div>
                     <div class="user">
-                        <a href="/create">Create New Topic</a>
-                        <a id="logoutBtn" href="javascript:void(0)">Logout</a>
+                        <a class="nav-link" href="/create">Create New Topic</a>
+                        <a class="nav-link" id="logoutBtn" href="javascript:void(0)">Logout</a>
                     </div>
                 </nav>
             </header>
