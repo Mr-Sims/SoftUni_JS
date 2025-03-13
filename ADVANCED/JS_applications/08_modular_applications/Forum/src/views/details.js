@@ -1,14 +1,14 @@
-import { getTopicById, getCommentsByTopicId } from '../api/data.js';
+import { getTopicById, getCommentsByTopicId, createComment } from '../api/data.js';
 import { spinner } from '../common/spinner.js';
 import { html, until } from '../lib.js';
-import { getUserData } from '../util.js';
+import { createSubmitHandler, getUserData } from '../util.js';
 
 const detailsTemplate = (promise) => html`
 <div class="drop main">
     ${until(promise, spinner())}
 </div>`;
 
-const topicCard = (topic, isOwner, comments) => html`
+const topicCard = (topic, isOwner, comments, onCommentSubmit) => html`
     <header>
         <h1>${topic.title}</h1>
         <div class="controls">
@@ -20,8 +20,8 @@ const topicCard = (topic, isOwner, comments) => html`
     <div class="topic-content">
         <p>${topic.content}</p>
     </div>
-    ${commentForm()}
     <div class="topic-content">
+        ${commentForm(onCommentSubmit)}
         ${comments.map(commentsCard)}
     </div>
 `;
@@ -35,30 +35,53 @@ const commentsCard = (comment) => html`
 </article>
 `;
 
-const commentForm = () => html`
-<div class="topic-content">
-        <form>
-            <input type="text" name="comment-content" />
+const commentForm = (onCommentSubmit) => html`
+<article class="comment">
+    <header>Post new comment</header>
+    <div class="topic-content">
+        <form @submit=${onCommentSubmit}>
+            <label>Content <textarea name="content"></textarea></label>
+            <input class="action" type="submit" value="Post" />
         </form>
     </div>
-`
+</article>`;
 
 
 
 export function showDetails(ctx) {
-    ctx.render(detailsTemplate(loadTopic(ctx.params.id)));
+    
+    update();
+    
+    function update() {
+        ctx.render(detailsTemplate(loadTopic(ctx.params.id, onCommentSubmit)));
+    };
+
+    async function onCommentSubmit(data, event) {
+        if (data.content == '') {
+            return alert('Cannot post empty comment!');
+        }
+
+        [...event.target.querySelectorAll('input, textarea')].forEach(i => i.disabled = true);
+
+        data.topicId = ctx.params.id;
+        const res = await createComment(data);
+        console.log(res);
+
+        [...event.target.querySelectorAll('input, textarea')].forEach(i => i.disabled = false);
+
+        update();
+    };
 }
 
-async function loadTopic(id) {
+async function loadTopic(id, onCommentSubmit) {
     const [topic, comments] = await Promise.all([
         getTopicById(id),
         getCommentsByTopicId(id)
     ]);
 
-    console.log(comments)
 
     const userData = getUserData();
     const isOwner = userData.id == topic._ownerId;
 
-    return topicCard(topic, isOwner, comments);
+    return topicCard(topic, isOwner, comments, createSubmitHandler(onCommentSubmit, 'content'));
 }

@@ -9,7 +9,8 @@ const endpoints = {
     getTopicCount: '/data/topics?count',
     getById: (id) => `/data/topics/${id}?load=${encodeURIComponent('author=_ownerId:users')}`,
     createTopic: '/data/topics',
-    getCommentsById: (topicId) => '/data/topicComments?where=' + encodeURIComponent(`topicId="${topicId}"`) + `&load=${encodeURIComponent('author=_ownerId:users')}`
+    getCommentsById: (topicId) => '/data/topicComments?where=' + encodeURIComponent(`topicId="${topicId}"`) + `&sortBy=_createdOn%20desc&load=${encodeURIComponent('author=_ownerId:users')}`,
+    createComment: '/data/topicComments',
 }
 
 export async function getAllTopics() {
@@ -30,4 +31,8 @@ export async function createTopic(topic) {
 
 export async function getCommentsByTopicId(topicId) {
     return api.get(endpoints.getCommentsById(topicId))
+}
+
+export async function createComment(comment) {
+    return api.post(endpoints.createComment, comment)
 }
